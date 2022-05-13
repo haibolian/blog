@@ -1,11 +1,9 @@
 <template>
-  <div>
-    asd
-  </div>
+  <ChinesePoetry></ChinesePoetry>
 </template>
 
 <script setup>
-
+import ChinesePoetry from '@/components/chinese-poetry/index.vue';
 
 </script>
 
