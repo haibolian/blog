@@ -7,12 +7,13 @@
         <color-name @hasGetColorName="hasGetColorName"></color-name>
       </div>
     </transition>
-    <div class="waves-setting">
-      <span class="l-icon icon-setting" @click="clickSettingIcon">⚙</span>>
+    <div class="arrow-to-body" @click="scrollToBody">👇</div>
+    <!-- <div class="waves-setting">
+      <span class="l-icon icon-setting" @click="clickSettingIcon">⚙</span>
       <transition name="slide-left-bottom">
         <setting-panel v-if="showSettingPanel"/>
       </transition>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -44,6 +45,9 @@ export default {
     }
   },
   methods:{
+    scrollToBody(){
+      this.$emit('clickArrow')
+    },
     revise(){ 
       this.$store.commit('setting/changeSetting',{
         key:'writingMode',
@@ -66,6 +70,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.waves .arrow-to-body {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
 .waves{
   position: relative;
   .waves-iframe{
