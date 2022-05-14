@@ -78,13 +78,14 @@ export default {
   cursor: pointer;
 }
 .waves{
+  height: 100vh;
   position: relative;
   .waves-iframe{
     width: 100%;
-    height: calc(100vh);
+    height: 100%;
   } 
   .waves-verse{
-    height: calc(100vh);
+    height: 100%;
     width: 100%;
     position: absolute;
     top: 30vh;
