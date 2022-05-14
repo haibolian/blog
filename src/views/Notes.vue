@@ -1,13 +1,20 @@
 <template>
-  <div>
-    notes
+  <div class="notes">
+    <ContentBox>
+      <template #nav>
+        asd
+      </template>
+      Notes
+    </ContentBox>
   </div>
 </template>
 
 <script setup>
-  defineOptions({
-    name: 'Notes'
-  })
+const ContentBox = defineAsyncComponent(() => import('@/components/ContentBox.vue'));
+
+defineOptions({
+  name: 'Notes'
+})
   
 </script>
 

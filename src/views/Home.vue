@@ -1,9 +1,6 @@
 <template>
   <div class="home">
     <ContentBox>
-      <template #nav>
-        asdasd
-      </template>
       home
     </ContentBox>
   </div>
