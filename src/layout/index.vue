@@ -1,20 +1,24 @@
 <template>
   <div class="main">
-    layout
-    <router-view></router-view>
+    <div class="left-info">
+      <BaseInfo></BaseInfo>
+      <MenuList></MenuList>
+      <LinkMe></LinkMe>
+    </div>
+    <div class="right-content">
+      <router-view></router-view>
+    </div>
+
   </div>
 </template>
 
 <script setup>
-  defineOptions({
-    name: 'index'
-  })
-  
-</script>
+const BaseInfo = defineAsyncComponent(() => import("./components/BaseInfo.vue"));
+const MenuList = defineAsyncComponent(() => import("./components/MenuList.vue"));
+const LinkMe = defineAsyncComponent(() => import("./components/LinkMe.vue"));
 
-<style lang='scss' scoped>
-.main {
-  height: 100vh;
-  background-image: linear-gradient(to top right, rgb(255, 221, 221), rgb(228, 244, 255));
-}
-</style>
+defineOptions({
+  name: 'index'
+})
+
+</script>

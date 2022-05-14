@@ -1,9 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
-import Layout from '@/layout/index.vue';
-import Home from '@/views/Home.vue';
-import Notes from '@/views/Notes.vue';
-import About from '@/views/About.vue';
+const Layout = () => import('@/layout/index.vue');
+const Home = () => import('@/views/Home.vue');
+const Notes = () => import('@/views/Notes.vue');
+const About = () => import('@/views/About.vue');
+
 const routes = [
   {
     path: '/',

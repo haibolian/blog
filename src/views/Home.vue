@@ -1,17 +1,19 @@
 <template>
-  <div class="main">
-    home
+  <div class="home">
+    <ContentBox>
+      <template #nav>
+        asdasd
+      </template>
+      home
+    </ContentBox>
   </div>
 </template>
 
 <script setup lang="ts">
-
+const ContentBox = defineAsyncComponent(() => import('@/components/ContentBox.vue'));
 
 </script>
 
 <style lang='scss' scoped>
-.main {
-  height: 100vh;
-  background-image: linear-gradient(to top right, rgb(255, 221, 221), rgb(228, 244, 255));
-}
+
 </style>
