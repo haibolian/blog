@@ -1,7 +1,7 @@
 <template>
   <div class="waves">
     <iframe class="waves-iframe" @click="handleClose" src="/waves/index.html" frameborder="0"></iframe>
-    <verse :isVertical="isVertical"/>
+    <Verse :isVertical="isVertical"/>
     <transition name="fade">
       <div v-show="isKeepColorName || showColorName" class="colorName">
         <color-name @hasGetColorName="hasGetColorName"></color-name>
