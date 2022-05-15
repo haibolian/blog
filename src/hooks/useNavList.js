@@ -1,6 +1,13 @@
 import axios from 'axios';
 import { reactive } from 'vue';
 import yaml from 'js-yaml';
+import router from '../router/index';
+
+/**
+ * todo: 此文件必须在main.js中引用，并且遍历 md 文件的目录制作路由，否则当用户直接输入 md 目录路由时，出现路由不存在的情况。
+ */
+
+const ListView = () => import('@/views/ListView.vue');
 
 const navList = reactive({})
 
@@ -32,9 +39,20 @@ export default function useNavList(cate){
         files: [file]
       })
     }
+    pushRouter(name,cate)
     // const dir = key.replace('/public/notes/', '')
   })
+
   return navList[cate]
+}
+
+function pushRouter(name,cate){
+  router.addRoute('notes',{
+    name: name,
+    path: name,
+    component: ListView
+  })
+
 }
 
 function parseData(key, data){

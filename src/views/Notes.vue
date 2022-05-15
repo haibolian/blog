@@ -4,17 +4,18 @@
       <template #nav>
         <ul>
           <li v-for="nav in navs" key="nav" @click="showList(nav)"> 
-          <router-link :to="'/notes/' + nav">{{ nav }}</router-link>
-            
+          <!-- <router-link :to="'/notes/' + nav">{{ nav }}</router-link> -->
+            {{ nav }}
           </li>
         </ul>
       </template>
-      <router-view>
-        <ul>
-          <li v-for="li in list">
-            {{ li.title }}
-          </li>
-        </ul>
+      <router-view v-slot="{Component, route}">
+        <component
+          :is="Component"
+          :data="list"
+        >
+
+        </component>
       </router-view>
     </ContentBox>
   </div>
@@ -38,9 +39,10 @@ const list = computed(() => {
   console.log(cur);
   return cur?.files || []
 })
-
+const router = useRouter()
 const showList = (nav) => {
   current.value = nav
+  router.push('/notes/' + nav)
 }
 
 </script>

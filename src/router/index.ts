@@ -12,15 +12,16 @@ const routes = [
     component: Layout,
     children: [
       {
-        path: 'home',
+        path: '/home',
         component: Home
       },
       {
-        path: 'notes',
+        name: 'notes',
+        path: '/notes',
         component: Notes,
       },
       {
-        path: 'about',
+        path: '/about',
         component: About
       }
     ]
