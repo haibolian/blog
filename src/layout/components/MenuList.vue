@@ -5,9 +5,9 @@
         v-for="list in navList"
         key="list.name"
         class="menu-list__item"
-        @click="clickNav(list.target)"
       >
-        {{ list.name }}
+        <router-link :to="list.target">{{ list.name }}</router-link>
+        
       </li>
     </ul>
   </div>
@@ -41,11 +41,11 @@ const navList = reactive([
   }
 ])
 
-const router = useRouter()
+// const router = useRouter()
 
-const clickNav = (target) => {
-  router.push(target)
-}
+// const clickNav = (target) => {
+//   router.push(target)
+// }
 
 </script>
 
