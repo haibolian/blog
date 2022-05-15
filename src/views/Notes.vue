@@ -10,11 +10,15 @@
 </template>
 
 <script setup>
+import useNavList from '@/hooks/useNavList';
 const ContentBox = defineAsyncComponent(() => import('@/components/ContentBox.vue'));
 
 defineOptions({
   name: 'Notes'
 })
+
+const list = useNavList('notes')
+
   
 </script>
 
