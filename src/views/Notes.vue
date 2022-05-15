@@ -2,9 +2,20 @@
   <div class="notes">
     <ContentBox>
       <template #nav>
-        asd
+        <ul>
+          <li v-for="nav in navs" key="nav" @click="showList(nav)"> 
+          <router-link :to="'/notes/' + nav">{{ nav }}</router-link>
+            
+          </li>
+        </ul>
       </template>
-      Notes
+      <router-view>
+        <ul>
+          <li v-for="li in list">
+            {{ li.title }}
+          </li>
+        </ul>
+      </router-view>
     </ContentBox>
   </div>
 </template>
@@ -17,9 +28,21 @@ defineOptions({
   name: 'Notes'
 })
 
-const list = useNavList('notes')
+const data = useNavList('notes')
+const navs = computed(() => data.map(list => list.dirname))
 
-  
+const current = ref('')
+
+const list = computed(() => {
+  const cur = unref(data).find(nav => nav.dirname === unref(current))
+  console.log(cur);
+  return cur?.files || []
+})
+
+const showList = (nav) => {
+  current.value = nav
+}
+
 </script>
 
 <style lang='scss' scoped>

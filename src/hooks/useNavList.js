@@ -23,16 +23,15 @@ export default function useNavList(cate){
       method: 'get'
     })
     const { name, file } = parseData(key, data)
-    const index = navList[cate].findIndex(item => item.dirName == name)
+    const index = navList[cate].findIndex(item => item.dirname == name)
     if(index > -1) {
       navList[cate][index].files.push(file)
     }else{
       navList[cate].push({
-        dirName: name,
+        dirname: name,
         files: [file]
       })
     }
-    debugger
     // const dir = key.replace('/public/notes/', '')
   })
   return navList[cate]
@@ -42,8 +41,10 @@ function parseData(key, data){
   const name = key.replace('/public/notes/', '').split('/')[0];
   const test = /---(.*?)---/sg
   const e = test.exec(data)[1]
+  const file = yaml.load(e)
+  file.path = key
   return {
     name,
-    file: yaml.load(e)
+    file
   }
 }
