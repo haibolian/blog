@@ -1,5 +1,6 @@
 ---
 title: 'vue2'
+category: 'Vue'
 date: '2021-1-1'
 ---
 

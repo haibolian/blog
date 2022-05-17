@@ -1,27 +1,39 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
+
 const Layout = () => import('@/layout/index.vue');
 const Home = () => import('@/views/Home.vue');
 const Notes = () => import('@/views/Notes.vue');
 const About = () => import('@/views/About.vue');
 
+function redirectNotes (to){
+  if(!to.params.category) {
+    return { name: to.name, params: { category: 'Vue' } }
+  }
+  return true
+}
+
 const routes = [
   {
+    name: 'root',
     path: '/',
     redirect: '/home',
     component: Layout,
     children: [
       {
-        path: '/home',
+        name: 'home',
+        path: 'home',
         component: Home
       },
       {
         name: 'notes',
-        path: '/notes',
+        path: 'notes/:category*',
         component: Notes,
+        beforeEnter: [ redirectNotes ]
       },
       {
-        path: '/about',
+        name: 'about',
+        path: 'about',
         component: About
       }
     ]

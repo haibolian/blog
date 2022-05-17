@@ -5,6 +5,7 @@ import router from '../router/index';
 
 /**
  * todo: 此文件必须在main.js中引用，并且遍历 md 文件的目录制作路由，否则当用户直接输入 md 目录路由时，出现路由不存在的情况。
+ * hasAchieved 已实现，此文件暂时搁置，若后续无需要，删除即可。
  */
 
 const ListView = () => import('@/views/ListView.vue');

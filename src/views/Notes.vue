@@ -4,45 +4,31 @@
       <template #nav>
         <ul>
           <li v-for="nav in navs" key="nav" @click="showList(nav)"> 
-          <!-- <router-link :to="'/notes/' + nav">{{ nav }}</router-link> -->
             {{ nav }}
           </li>
         </ul>
       </template>
-      <router-view v-slot="{Component, route}">
-        <component
-          :is="Component"
-          :data="list"
-        >
-
-        </component>
-      </router-view>
+      <ListView :data="list"></ListView>
     </ContentBox>
   </div>
 </template>
 
 <script setup>
-import useNavList from '@/hooks/useNavList';
+// import useNavList from '@/hooks/useNavList';
+import { categories } from '@/utils/fillRouter';
+const ListView = defineAsyncComponent(() => import('./ListView.vue'))
 const ContentBox = defineAsyncComponent(() => import('@/components/ContentBox.vue'));
 
 defineOptions({
   name: 'Notes'
 })
+const route = useRoute()
+const navs = Object.keys(categories)
+const active = ref(route.params.category)
+const list = computed(() => categories[active.value])
 
-const data = useNavList('notes')
-const navs = computed(() => data.map(list => list.dirname))
-
-const current = ref('')
-
-const list = computed(() => {
-  const cur = unref(data).find(nav => nav.dirname === unref(current))
-  console.log(cur);
-  return cur?.files || []
-})
-const router = useRouter()
 const showList = (nav) => {
-  current.value = nav
-  router.push('/notes/' + nav)
+  active.value = nav
 }
 
 </script>
