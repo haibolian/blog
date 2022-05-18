@@ -23,11 +23,16 @@ defineOptions({
   name: 'Notes'
 })
 const route = useRoute()
+const router = useRouter()
 const navs = Object.keys(categories)
 const active = ref(route.params.category)
 const list = computed(() => categories[active.value])
 
 const showList = (nav) => {
+  router.replace({
+    name: 'notes',
+    params: { category: nav }
+  })
   active.value = nav
 }
 
