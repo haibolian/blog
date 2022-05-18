@@ -5,6 +5,7 @@ const Layout = () => import('@/layout/index.vue');
 const Home = () => import('@/views/Home.vue');
 const Notes = () => import('@/views/Notes.vue');
 const About = () => import('@/views/About.vue');
+const PostsView = () => import('@/views/PostsView.vue');
 
 function redirectNotes (to){
   if(!to.params.category) {
@@ -38,6 +39,12 @@ const routes = [
       }
     ]
   },
+  {
+    name: 'postsview',
+    path: '/notes/:category/:title',
+    component: PostsView
+  },
+
 ]
 
 const router = createRouter({

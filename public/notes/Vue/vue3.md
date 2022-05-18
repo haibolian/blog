@@ -1,5 +1,5 @@
 ---
-title: 'vue3 内容'
+title: 'vue3'
 category: 'Vue'
 date: '2020-1-1'
 ---

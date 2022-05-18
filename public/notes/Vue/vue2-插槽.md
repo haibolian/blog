@@ -1,5 +1,5 @@
 ---
-title: 'vue2'
+title: 'vue2-插槽'
 category: 'Vue'
 date: '2021-1-1'
 ---
