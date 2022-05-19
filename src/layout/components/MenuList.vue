@@ -1,14 +1,18 @@
 <template>
   <div class="menu-list">
     <ul class="menu-list__box">
-      <li
-        v-for="list in navList"
-        key="list.name"
-        class="menu-list__item"
-      >
-        <router-link :to="list.target">{{ list.name }}</router-link>
-        
-      </li>
+      <router-link v-for="list in navList" :to="list.target" custom v-slot="{ navigate }">
+        <li
+          :style="{ backgroundColor: list.backgroundColor }"
+          @click="navigate"
+          @keypress.enter="navigate"
+          role="link"
+          class="menu-list__item"
+          :key="list.name"
+        >
+        {{ list.name }}
+        </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -17,15 +21,16 @@
 defineOptions({
   name: 'MenuList'
 })
-
 const navList = reactive([
   {
-    name: '首页',
-    target: '/home'
+    name: '主',
+    target: '/home',
+    backgroundColor: 'red',
   },
   {
-    name: '笔记',
-    target: '/notes'
+    name: '书',
+    target: '/notes',
+    backgroundColor: '#a18cd1',
   },
   // {
   //   name: '诗词',
@@ -36,8 +41,9 @@ const navList = reactive([
   //   target: '/essay'
   // },
   {
-    name: '关于',
-    target: '/about'
+    name: '吾',
+    target: '/about',
+    backgroundColor: '#30cfd0',
   }
 ])
 
@@ -59,6 +65,13 @@ const navList = reactive([
 }
 
 .menu-list__item {
+  color: #fff;
+  text-align: center;
+  padding: 6px 0;
+  margin: 8px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  letter-spacing: 10px;
 
 }
 </style>

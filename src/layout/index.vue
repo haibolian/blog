@@ -22,3 +22,8 @@ defineOptions({
 })
 
 </script>
+<style scoped>
+.left-info{
+  font-family: fzjt;
+}
+</style>

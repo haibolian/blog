@@ -26,7 +26,6 @@ defineOptions({
 }
 .name {
   font-size: 20px;
-  font-family: fzls;
 }
 .mapbo {
   position: absolute;
