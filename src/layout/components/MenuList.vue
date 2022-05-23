@@ -23,27 +23,34 @@ defineOptions({
 })
 const navList = reactive([
   {
-    name: '主',
+    name: '首',
     target: '/home',
-    backgroundColor: 'red',
+    backgroundColor: '#EB5D3F',
   },
   {
-    name: '书',
+    name: '记',
     target: '/notes',
     backgroundColor: '#a18cd1',
   },
-  // {
-  //   name: '诗词',
-  //   target: '/poetry'
-  // },
-  // {
-  //   name: '随笔',
-  //   target: '/essay'
-  // },
+  {
+    name: '诗',
+    target: '/about',
+    backgroundColor: '#CC99CC',
+  },
+  {
+    name: '感',
+    target: '/about',
+    backgroundColor: '#CC3333',
+  },
+  {
+    name: '忆',
+    target: '/about',
+    backgroundColor: '#0099CC',
+  },
   {
     name: '吾',
     target: '/about',
-    backgroundColor: '#30cfd0',
+    backgroundColor: '#999900',
   }
 ])
 
@@ -61,17 +68,17 @@ const navList = reactive([
   padding: 20px;
 }
 .menu-list__box {
-
+  text-align: center;
 }
 
 .menu-list__item {
   color: #fff;
   text-align: center;
   padding: 6px 0;
-  margin: 8px 0;
-  border-radius: 10px;
+  margin: 15px 0;
+  border-radius: 50px;
   cursor: pointer;
-  letter-spacing: 10px;
+  
 
 }
 </style>
