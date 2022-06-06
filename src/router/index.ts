@@ -1,5 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-
+import {
+  RouteRecordRaw,
+  RouteLocationNormalized,
+  
+} from 'vue-router';
 
 const Layout = () => import('@/layout/index.vue');
 const Home = () => import('@/views/Home.vue');
@@ -7,14 +11,14 @@ const Notes = () => import('@/views/Notes.vue');
 const About = () => import('@/views/About.vue');
 const PostsView = () => import('@/views/PostsView.vue');
 
-function redirectNotes (to){
+function redirectNotes (to: RouteLocationNormalized): any{
   if(!to.params.category) {
     return { name: to.name, params: { category: 'Vue' } }
   }
   return true
 }
 
-const routes = [
+const routes: RouteRecordRaw[] = [
   {
     name: 'root',
     path: '/',
