@@ -2,9 +2,7 @@
 .main {
   height: 100vh;
   width: 100%;
-  /* background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%); */
-  background-image: url(../assets/images/itab.png);
-  background-size: 100vw 100vh;
+  background-color: #eee;
   display: flex;
 }
 
@@ -26,8 +24,8 @@
 
 .base-info, .link-me, .menu-list {
   width: 75%;
-  background-color: rgba(245, 245, 245, .5);
-  backdrop-filter: blur(5px);
+  border: 1px solid #00000020;
+  background-color: #fff;
   border-radius: 20px;
 }
 .base-info, .link-me {
@@ -47,8 +45,7 @@
   display: flex;
   justify-content: start;
   /* background-color: #6aaf7c; */
-  background-color: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blue(15px);
+  background-color: #fff;
   border-radius: 25px;
 }
 .navbar {
@@ -57,7 +54,6 @@
 
 .content {
   flex: 1;
-  background-color: rgba(245, 245, 245, 0.3);
-  backdrop-filter: blue(15px);
+  border-left: 1px solid #00000020;
   border-radius: 25px;  
 }
