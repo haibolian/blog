@@ -1,5 +1,14 @@
 <script setup lang="ts">
 import ChinesePoetry from '@/components/chinese-poetry/index.vue';
+import { getdata } from '@/api/test';
+
+async function getd(){
+  const rr = await getdata()
+  console.log(rr)
+}
+
+getd()
+
 defineOptions({
   name: 'App'
 })
@@ -15,6 +24,7 @@ const scrollToMain = () => {
 </script>
 
 <template>
+
   <!-- <ChinesePoetry @clickArrow="scrollToMain"></ChinesePoetry> -->
   <div ref="_ref_main">
     <router-view></router-view>

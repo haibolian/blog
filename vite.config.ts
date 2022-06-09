@@ -1,6 +1,7 @@
 import DefineOptions from 'unplugin-vue-define-options/vite';
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import { viteMockServe } from 'vite-plugin-mock';
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite';
 
@@ -9,6 +10,10 @@ export default defineConfig({
   plugins: [
     vue(), 
     DefineOptions(),
+    viteMockServe({
+      mockPath: 'mock',
+      localEnabled: true
+    }),
     AutoImport({
       imports: ["vue", "vue-router"],
       dts: "src/auto-import.d.ts"
