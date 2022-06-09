@@ -7,6 +7,10 @@
     "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [ "src/*" ]
+    },
     "sourceMap": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -15,6 +19,11 @@
     "skipLibCheck": true,
     "types": ["unplugin-vue-define-options"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
