@@ -15,7 +15,7 @@ const scrollToMain = () => {
 </script>
 
 <template>
-  <ChinesePoetry @clickArrow="scrollToMain"></ChinesePoetry>
+  <!-- <ChinesePoetry @clickArrow="scrollToMain"></ChinesePoetry> -->
   <div ref="_ref_main">
     <router-view></router-view>
   </div>
